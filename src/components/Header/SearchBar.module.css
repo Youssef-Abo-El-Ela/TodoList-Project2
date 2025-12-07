@@ -1,0 +1,8 @@
+.searchForm {
+    width: 100%;
+    max-width: 500px;
+}
+
+.searchInput {
+    min-width: 300px;
+}
