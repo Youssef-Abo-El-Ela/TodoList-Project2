@@ -1,3 +1,11 @@
 .brandImage{
     width: 30%;
 }
+
+.brandText{
+    color: var(--text-color)
+}
+
+.linkText{
+    color: var(--text-color);
+}

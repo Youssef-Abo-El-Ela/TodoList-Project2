@@ -1,0 +1,6 @@
+button{
+    height: fit-content;
+    width: max-content;
+    white-space: nowrap;
+    margin-left: 5px;
+}

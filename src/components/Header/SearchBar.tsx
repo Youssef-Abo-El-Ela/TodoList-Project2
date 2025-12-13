@@ -1,27 +1,27 @@
 import { Form } from "react-bootstrap";
 import styles from "./SearchBar.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-function useDebounce(value: string, delay: number): string {
-  const [debouncedValue, setDebouncedValue] = useState(value);
+// function useDebounce(value: string, delay: number): string {
+//   const [debouncedValue, setDebouncedValue] = useState(value);
 
-  useEffect(() => {
-    const timeHandler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
+//   useEffect(() => {
+//     const timeHandler = setTimeout(() => {
+//       setDebouncedValue(value);
+//     }, delay);
 
-    return () => {
-      clearTimeout(timeHandler);
-    };
-  }, [value, delay]);
+//     return () => {
+//       clearTimeout(timeHandler);
+//     };
+//   }, [value, delay]);
 
-  return debouncedValue;
-}
+//   return debouncedValue;
+// }
 
 export default function SearchBar() {
   const [searchText, setSearchText] = useState("");
 
-  const debouncedSearchTerm = useDebounce(searchText, 300);
+  // const debouncedSearchTerm = useDebounce(searchText, 300);
 
   const handleSearchTextChange = (
     event: React.ChangeEvent<HTMLInputElement>

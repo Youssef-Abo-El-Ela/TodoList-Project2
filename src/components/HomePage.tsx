@@ -1,16 +1,5 @@
-import { useContext } from "react"
-import { ThemeContext } from "../App"
-
-
-
-function HomePage (){
-    const {theme , setTheme} = useContext(ThemeContext)
-
-    return(
-        <div style={{ backgroundColor: theme === 'dark'? 'black': 'white' }}>
-            Hello
-        </div>
-    )
+function HomePage() {
+  return <div>Hello</div>;
 }
 
-export default HomePage
+export default HomePage;

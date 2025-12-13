@@ -1,18 +1,12 @@
-import { useContext } from "react";
 import { Button } from "react-bootstrap";
-import { ThemeContext } from "../../App";
+import { useTheme } from "../../context/ThemeContext";
+import styles from "./ThemeButton.module.css";
 
-
-export default function ThemeButton(){
-    const {theme , setTheme} = useContext(ThemeContext);
-    
-    const toggleTheme = ()=>{
-        setTheme(theme=== "light" ? "dark" : "light")
-    }
-
-    return(
-        <Button onClick={toggleTheme} className={`text-nowrap ${theme === 'light' ? 'btn-dark' : 'btn-light'}`}>
-            {theme === 'light' ? 'Dark' : 'Light'} mode
-        </Button>
-    )
+export default function ThemeButton() {
+  const { theme, toggleTheme } = useTheme();
+  return (
+    <Button onClick={toggleTheme} className={styles.button}>
+      {theme === "light" ? "Dark" : "Light"} mode
+    </Button>
+  );
 }

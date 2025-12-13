@@ -1,3 +1,15 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --primary-btn: #007bff;
+}
+
+.dark {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --primary-btn: #375a7f;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +17,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 code {
