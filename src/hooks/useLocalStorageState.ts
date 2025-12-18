@@ -1,12 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 export const useLocalStorageState = () => {
 
-    const initialTodos = window.localStorage.getItem('todos') ?? '[]'
+    const [currentTodos, setCurrentTodos] = useState(()=>window.localStorage.getItem('todos') ?? '[]')
 
-    const [currentTodos, setCurrentTodos] = useState(initialTodos)
-
+    useEffect(()=>{
+        localStorage.setItem('todos' , currentTodos)
+    }, [currentTodos])
 
     return [currentTodos, setCurrentTodos] as const
 }

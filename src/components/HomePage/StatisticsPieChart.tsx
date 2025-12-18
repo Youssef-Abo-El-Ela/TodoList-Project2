@@ -1,6 +1,7 @@
-import { useEffect, useMemo } from "react";
-import { Cell, Pie, PieChart, PieLabelRenderProps } from "recharts";
+import { useMemo } from "react";
+import { Cell, Legend, Pie, PieChart, PieLabelRenderProps } from "recharts";
 import { Todo } from "../../interfaces/Todos";
+import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
 // #endregion
 const RADIAN = Math.PI / 180;
@@ -41,16 +42,10 @@ export default function PieChartWithCustomizedLabel({
 }: {
   isAnimationActive?: boolean;
 }) {
-  //   const todos = localStorage.getItem("todos");
+  const [currentTodos] = useLocalStorageState();
 
-  const todos = JSON.stringify([
-    { title: "Task 1", completed: true, content: "Content 1" },
-    { title: "Task 2", completed: true, content: "Content 2" },
-    { title: "Task 3", completed: true, content: "Content 3" },
-    { title: "Task 4", completed: false, content: "Content 4" },
-  ]);
   const todoList = useMemo(() => {
-    const parsedTodos = todos ? JSON.parse(todos) : [];
+    const parsedTodos = currentTodos ? JSON.parse(currentTodos) : [];
 
     const completedTodos: Todo[] = parsedTodos.filter(
       (todo: Todo) => todo.completed === true
@@ -62,7 +57,7 @@ export default function PieChartWithCustomizedLabel({
       { name: "Completed", value: completedTodos.length },
       { name: "Pending", value: pendingTodos.length },
     ];
-  }, [todos]);
+  }, [currentTodos]);
 
   return (
     <PieChart
@@ -89,6 +84,7 @@ export default function PieChartWithCustomizedLabel({
           />
         ))}
       </Pie>
+      <Legend />
     </PieChart>
   );
 }
