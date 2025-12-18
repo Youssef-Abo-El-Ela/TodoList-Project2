@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Cell, Legend, Pie, PieChart, PieLabelRenderProps } from "recharts";
 import { Todo } from "../../interfaces/Todos";
 import { useLocalStorageState } from "../../hooks/useLocalStorageState";
@@ -59,12 +59,13 @@ export default function PieChartWithCustomizedLabel({
     ];
   }, [currentTodos]);
 
+
   return (
     <PieChart
       style={{
         width: "100%",
-        maxWidth: "500px",
-        maxHeight: "80vh",
+        maxWidth: "400px",
+        maxHeight: "60vh",
         aspectRatio: 1,
       }}
       responsive

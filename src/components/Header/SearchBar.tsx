@@ -1,27 +1,29 @@
 import { Form } from "react-bootstrap";
 import styles from "./SearchBar.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
-// function useDebounce(value: string, delay: number): string {
-//   const [debouncedValue, setDebouncedValue] = useState(value);
+function useDebounce(value: string, delay: number): string {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  const [currentTodos] = useLocalStorageState();
 
-//   useEffect(() => {
-//     const timeHandler = setTimeout(() => {
-//       setDebouncedValue(value);
-//     }, delay);
+  useEffect(() => {
+    const timeHandler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
 
-//     return () => {
-//       clearTimeout(timeHandler);
-//     };
-//   }, [value, delay]);
+    return () => {
+      clearTimeout(timeHandler);
+    };
+  }, [value, delay]);
 
-//   return debouncedValue;
-// }
+  return debouncedValue;
+}
 
 export default function SearchBar() {
   const [searchText, setSearchText] = useState("");
 
-  // const debouncedSearchTerm = useDebounce(searchText, 300);
+  const debouncedSearchTerm = useDebounce(searchText, 300);
 
   const handleSearchTextChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -29,8 +31,10 @@ export default function SearchBar() {
     setSearchText(event.target.value);
   };
 
-  //   useEffect(() => {
-  //   }, [debouncedSearchTerm]);
+  useEffect(() => {
+    const searchEvent = new CustomEvent("searchTodos", { detail: debouncedSearchTerm });
+    window.dispatchEvent(searchEvent);
+  }, [debouncedSearchTerm]);
 
   return (
     <Form className={`d-flex ${styles.searchForm}`}>

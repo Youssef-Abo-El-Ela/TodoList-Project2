@@ -1,16 +1,15 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
-import SearchBar from "./SearchBar";
 import ThemeButton from "./ThemeButton";
 
 export default function NavBar() {
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg" className={styles.NavBar}>
       <Container>
         <Navbar.Brand>
           <img
-            src="/logo192.png"
+            src="/tasks.png"
             alt="Brand Logo"
             className={styles.brandImage}
           />
@@ -20,10 +19,9 @@ export default function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav >
             <Nav.Link as={Link} to="/">
-              <span className= {styles.linkText}>Home</span>
+              <span className={styles.linkText}>Home</span>
             </Nav.Link>
-            <SearchBar></SearchBar>
-            <ThemeButton></ThemeButton>
+            <ThemeButton />
           </Nav>
         </Navbar.Collapse>
       </Container>

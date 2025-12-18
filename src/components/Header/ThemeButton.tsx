@@ -5,7 +5,7 @@ import styles from "./ThemeButton.module.css";
 export default function ThemeButton() {
   const { theme, toggleTheme } = useTheme();
   return (
-    <Button onClick={toggleTheme} className={styles.button}>
+    <Button onClick={toggleTheme} className={styles.btn_primary}>
       {theme === "light" ? "Dark" : "Light"} mode
     </Button>
   );

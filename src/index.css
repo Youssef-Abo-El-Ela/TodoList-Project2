@@ -2,12 +2,18 @@
   --bg-color: #ffffff;
   --text-color: #333333;
   --primary-btn: #007bff;
+  --delete-btn: #ff4d4d;
+  --warning-color: #ffc107;
+  --success-color: #28a745;
 }
 
 .dark {
   --bg-color: #1a1a1a;
   --text-color: #f0f0f0;
   --primary-btn: #375a7f;
+  --delete-btn: #431111;
+  --warning-color: #856404;
+  --success-color: #155724;
 }
 
 body {
@@ -25,4 +31,36 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Map Bootstrap button variants to your theme variables so colors change
+   automatically when the `.dark` class is toggled. */
+.btn-success {
+  background-color: var(--success-color) !important;
+  border-color: var(--success-color) !important;
+  color: #fff !important;
+}
+.btn-success:hover,
+.btn-success:focus {
+  filter: brightness(0.92);
+}
+
+.btn-warning {
+  background-color: var(--warning-color) !important;
+  border-color: var(--warning-color) !important;
+  color: #212529 !important;
+}
+.btn-warning:hover,
+.btn-warning:focus {
+  filter: brightness(0.95);
+}
+
+.btn-danger {
+  background-color: var(--delete-btn) !important;
+  border-color: var(--delete-btn) !important;
+  color: #fff !important;
+}
+.btn-danger:hover,
+.btn-danger:focus {
+  filter: brightness(0.9);
 }

@@ -1,5 +1,5 @@
 .brandImage{
-    width: 30%;
+    width: 9%;
 }
 
 .brandText{
@@ -8,4 +8,9 @@
 
 .linkText{
     color: var(--text-color);
+}
+
+.NavBar{
+    display: flex;
+    justify-content: space-between;
 }

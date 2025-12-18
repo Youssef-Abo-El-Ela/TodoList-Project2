@@ -4,3 +4,13 @@ button{
     white-space: nowrap;
     margin-left: 5px;
 }
+
+.btn_primary {
+    background-color: var(--primary-btn);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
