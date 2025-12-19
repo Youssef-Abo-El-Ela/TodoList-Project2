@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+**Todo App — Local Development & Overview**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Run Locally**
 
-## Available Scripts
+- **Install dependencies:** Run `npm install` in the project root.
+- **Start dev server:** Run `npm start` and open http://localhost:3000.
+- **Build for production:** Run `npm run build`.
 
-In the project directory, you can run:
+**Project Purpose**
 
-### `npm start`
+This repository is a small Todo application built with React + TypeScript. It demonstrates basic state management, theming, local persistence, and a multi-page UI.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Major Components & Responsibilities**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **`src/App.tsx`**: App shell and top-level routing; wires up context providers.
+- **`src/index.tsx`**: Application entry; renders `App` into the DOM and registers performance reporting.
+- **`src/context/ThemeContext.tsx`**: Theme provider and context for light/dark mode.
+- **`src/hooks/useLocalStorageState.ts`**: Custom hook that persists state to `localStorage` and provides a stable API for components.
+- **`src/enums/theme.ts`**: Theme-related enums used by the context and UI.
+- **`src/interfaces/Todos.ts`**: Type definitions for todo items and related data shapes.
+- **`src/interfaces/ThemeContext.ts`**: Type definition for the theme context value.
 
-### `npm test`
+Components:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **`src/components/Header/NavBar.tsx`**: Top navigation and layout wrapper; contains the app title and primary actions.
+- **`src/components/Header/SearchBar.tsx`**: Search input for filtering todos by title/description.
+- **`src/components/Header/ThemeButton.tsx`**: Toggles app theme via `ThemeContext`.
+- **`src/components/HomePage/HomePage.tsx`**: Main todo list page — orchestrates list rendering, filtering and summary widgets.
+- **`src/components/HomePage/TodoViewer.tsx`**: Renders the list of todos and handles selection/navigation to details.
+- **`src/components/HomePage/StatisticsPieChart.tsx`**: Small visual summary of todo status (completed vs active).
+- **`src/components/AddTodoPage/AddTodoPage.tsx`**: Form for creating a new todo; validates input and saves via local state hook.
+- **`src/components/TodoDetailsPage/TodoDetailsPage.tsx`**: Shows a single todo's full details and allows editing/completing/removal.
 
-### `npm run build`
+**Data & Persistence**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The app stores todos in `localStorage` via `useLocalStorageState`, so no backend is required.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Useful Notes**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Static assets (favicon, manifest) live in the `public/` folder.

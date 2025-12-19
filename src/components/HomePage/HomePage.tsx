@@ -19,10 +19,10 @@ function HomePage() {
     <div className={styles.homepage}>
       <PieChart />
       <h1>My Todos</h1>
-      <SearchBar/>
       <Button href="/add" className={styles.btn_primary}>
         Add Todo
       </Button>
+      <SearchBar/>
       <TodoViewer />
     </div>
   );
